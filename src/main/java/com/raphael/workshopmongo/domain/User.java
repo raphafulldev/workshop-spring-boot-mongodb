@@ -1,10 +1,14 @@
 package com.raphael.workshopmongo.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
 import java.util.Objects;
 
-
+@Document(collection = "user") //não é obrigado coloar (collection = " ". Caso não tenha, o spring, será mapeado "user".
 public class User implements Serializable {
+    @Id
     private String id;
     private String name;
     private String email;
