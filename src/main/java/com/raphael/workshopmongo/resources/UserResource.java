@@ -22,7 +22,7 @@ public class UserResource {
     private UserService userService;
 
     @GetMapping
-    public ResponseEntity<List<UserDTO>> findAll (){
+    public ResponseEntity<List<UserDTO>> findAll() {
         List<User> list = userService.findAll();
         List<UserDTO> listDto = list.stream()
                 .map(x -> new UserDTO(x))
@@ -31,14 +31,14 @@ public class UserResource {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<UserDTO> findById (@PathVariable String id){
+    public ResponseEntity<UserDTO> findById(@PathVariable String id) {
         User user = userService.findById(id);
 //        UserDTO userDTO = new UserDTO(user); poderia ser feito assim tbm
         return ResponseEntity.ok().body(new UserDTO(user));
     }
 
     @PostMapping
-    public ResponseEntity<Void> insert (@RequestBody UserDTO objDto){
+    public ResponseEntity<Void> insert(@RequestBody UserDTO objDto) {
         User obj = userService.fromDTO(objDto);
         obj = userService.insert(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
@@ -46,8 +46,17 @@ public class UserResource {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> delete (@PathVariable String id){
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         userService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Void> update(@PathVariable String id, @RequestBody UserDTO objDto) {
+        User obj = userService.fromDTO(objDto);
+        obj.setId(id);
+        obj = userService.update(obj);
+        return ResponseEntity.noContent().build();
+
     }
 }
