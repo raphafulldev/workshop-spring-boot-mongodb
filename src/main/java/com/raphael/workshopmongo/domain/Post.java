@@ -1,6 +1,7 @@
 package com.raphael.workshopmongo.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.raphael.workshopmongo.dto.AuthorDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,12 +16,12 @@ public class Post implements Serializable {
     private Date date;
     private String title;
     private String body;
-    private User author;
+    private AuthorDTO author;
 
     public Post() {
     }
 
-    public Post(String id, Date date, String title, String body, User user) {
+    public Post(String id, Date date, String title, String body, AuthorDTO user) {
         this.id = id;
         this.date = date;
         this.title = title;
@@ -60,11 +61,11 @@ public class Post implements Serializable {
         this.body = body;
     }
 
-    public User getUser() {
+    public AuthorDTO getAuthor() {
         return author;
     }
 
-    public void setUser(User user) {
+    public void setAuthor(AuthorDTO user) {
         this.author = user;
     }
 
