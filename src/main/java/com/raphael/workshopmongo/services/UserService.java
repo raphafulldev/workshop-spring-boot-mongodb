@@ -25,4 +25,12 @@ public class UserService {
         Optional<User> user = repository.findById(id);
         return user.orElseThrow(() -> new ObjectNotFoundException("Object not found"));
     }
+
+    public User insert (User user){
+        return repository.insert(user);
+    }
+
+    public User fromDTO(UserDTO objDto){
+        return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
+    }
 }
