@@ -1,4 +1,4 @@
-package com.raphael.workshopmongo.services.exception;
+package com.raphael.workshopmongo.resources.exception;
 
 import java.io.Serializable;
 import java.time.Instant;

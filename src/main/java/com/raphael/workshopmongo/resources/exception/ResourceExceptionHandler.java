@@ -1,4 +1,4 @@
-package com.raphael.workshopmongo.services.exception;
+package com.raphael.workshopmongo.resources.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;

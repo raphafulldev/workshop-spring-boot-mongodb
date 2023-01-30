@@ -1,4 +1,4 @@
-package com.raphael.workshopmongo.services.exception;
+package com.raphael.workshopmongo.resources.exception;
 
 public class ObjectNotFoundException extends RuntimeException {
 

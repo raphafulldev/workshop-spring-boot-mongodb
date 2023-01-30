@@ -3,9 +3,8 @@ package com.raphael.workshopmongo.services;
 import com.raphael.workshopmongo.domain.User;
 import com.raphael.workshopmongo.dto.UserDTO;
 import com.raphael.workshopmongo.repositories.UserRepository;
-import com.raphael.workshopmongo.services.exception.ObjectNotFoundException;
+import com.raphael.workshopmongo.resources.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
